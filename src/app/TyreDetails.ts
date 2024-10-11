@@ -1,5 +1,8 @@
 export interface TyreDetails {
-    product_name: string;
-    model_number: string;
-    size: string;
-}
+    _id: string
+    type: string
+    description: string
+    long_description: string
+    image_url: string
+  }
+  

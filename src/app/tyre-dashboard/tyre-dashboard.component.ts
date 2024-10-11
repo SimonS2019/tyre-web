@@ -19,8 +19,10 @@ export class TyreDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.toastr.success('Hello world!', 'Toastr fun!');
 
-    this.tyreService
-      .getTireDetails()
-      .subscribe((data) => (this.tyreDetails = data));
+    this.tyreService.getTireDetails().subscribe((data) => {
+      console.log(data);
+      
+      this.tyreDetails = data;
+    });
   }
 }
