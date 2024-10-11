@@ -1,1 +1,24 @@
-<p>my-account works!</p>
+<h1>My Account</h1>
+<h2>My Orders</h2>
+<div class="list-group">
+  <div *ngFor="let order of orders" class="list-group-item mb-3">
+    <h3>Order ID: {{ order._id }}</h3>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <p><strong>Order Date:</strong> {{ order.orderDate | date }}</p>
+    <h4>Contact Details</h4>
+    <p><strong>Name:</strong> {{ order.contactDetails.name }}</p>
+    <p><strong>Phone:</strong> {{ order.contactDetails.phone }}</p>
+    <p><strong>Email:</strong> {{ order.contactDetails.email }}</p>
+    <p><strong>Address:</strong> {{ order.contactDetails.address }}</p>
+    <h4>Products</h4>
+    <ul class="list-group">
+      <li *ngFor="let product of order.products" class="list-group-item mb-2">
+        <p><strong>Product ID:</strong> {{ product.productId }}</p>
+        <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+        <p><strong>Subtotal:</strong> {{ product.subtotal | currency }}</p>
+      </li>
+    </ul>
+    <p><strong>Shipping Price:</strong> {{ order.shippingPrice | currency }}</p>
+    <p><strong>Total Price:</strong> {{ order.totalPrice | currency }}</p>
+  </div>
+</div>
