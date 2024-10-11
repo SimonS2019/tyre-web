@@ -24,7 +24,7 @@ export class TyreService {
   }
 
   // {{url}}/products/308
-  getProductById(id: number): Observable<Product> {
+  getProductById(id: string): Observable<Product> {
     return this.http.get<Product>(this.configUrl + 'products/' + id);
   }
 

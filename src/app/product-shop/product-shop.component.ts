@@ -26,9 +26,11 @@ export class ProductShopComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('productId');
-    this.tyreService.getProductById(+productId).subscribe(
+    console.log(productId);
+    
+    this.tyreService.getProductById(productId).subscribe(
       (data: Product) => {
-        // console.log(data);
+        console.log(data);
         this.product = data;
       },
       (error) => {

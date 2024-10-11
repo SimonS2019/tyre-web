@@ -20,7 +20,7 @@
                             <img [src]="product.imgaddress" class="card-img-top fixed-size" alt="{{ product.name }}">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a [routerLink]="['/products',product.id]" class="font-weight-bold">{{ product.name
+                                    <a [routerLink]="['/products',product._id]" class="font-weight-bold">{{ product.name
                                         }}</a>
                                 </h5>
                                 <p class="card-text">{{ product.description }}</p>
