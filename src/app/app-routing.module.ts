@@ -6,18 +6,22 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductShopComponent } from './product-shop/product-shop.component';
 import { TyreDashboardComponent } from './tyre-dashboard/tyre-dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
-const routes: Routes =
- [ {path: 'products/:productId', component: ProductShopComponent },
- {path: 'products', component: ProductDetailsComponent },
- {path: 'cart', component: CartItemsComponent },
- {path: '', component: LandingpageComponent },
- {path: 'checkout', component: CheckoutformComponent },
- {path: 'tireguide', component: TyreDashboardComponent }
+const routes: Routes = [
+  { path: 'products/:productId', component: ProductShopComponent },
+  { path: 'products', component: ProductDetailsComponent },
+  { path: 'cart', component: CartItemsComponent },
+  { path: '', component: LandingpageComponent },
+  { path: 'checkout', component: CheckoutformComponent },
+  { path: 'tireguide', component: TyreDashboardComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

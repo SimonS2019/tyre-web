@@ -13,6 +13,8 @@ import { TyreDashboardComponent } from './tyre-dashboard/tyre-dashboard.componen
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
     CheckoutformComponent,
     LandingpageComponent,
     TyreDashboardComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
