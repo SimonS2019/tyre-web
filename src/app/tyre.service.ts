@@ -22,5 +22,10 @@ export class TyreService {
     return this.http.get<Product[]>(this.configUrl+'products/all');
   }
 
-  addTire() {}
+  // {{url}}/products/308
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(this.configUrl+'products/'+id);
+  }
+
+  // addTire() {}
 }
