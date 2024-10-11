@@ -2,7 +2,7 @@
     <div [hidden]="!submitted">
         <p class="sp" style="text-align:center;">This Product is already added to Cart</p>
     </div>
-    <div class="card">
+    <div class="card" *ngIf="product">
         <div class="container-fliud">
             <div class="wrapper row">
                 <div class="preview col-md-6">
