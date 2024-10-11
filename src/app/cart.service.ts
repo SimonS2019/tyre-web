@@ -17,6 +17,8 @@ export class CartService {
     } else {
       this.cartProduct.push({ product, quantity });
     }
+    console.log(this.cartProduct);
+    
   }
 
   getProducts(): CartProduct[] {
@@ -25,5 +27,9 @@ export class CartService {
 
   clearCart(): void {
     this.cartProduct = [];
+  }
+
+  removeProductFromCart(id: number): void {
+    this.cartProduct = this.cartProduct.filter(p => p.product.id !== id);
   }
 }
