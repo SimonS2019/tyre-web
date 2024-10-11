@@ -10,11 +10,12 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CheckoutformComponent } from './checkoutform/checkoutform.component';
 import { FormsModule } from '@angular/forms';
 import { TyreDashboardComponent } from './tyre-dashboard/tyre-dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { RegisterComponent } from './register/register.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
