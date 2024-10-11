@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { tap } from 'rxjs/operators'; // Import tap
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}auth/login`, { email, password });
+    return this.http.post(`${this.baseUrl}auth/login`, { email, password }).pipe(
+      tap((response: any) => {
+        localStorage.setItem('token', response.token);
+      })
+    );
   }
 
   register(username: string, email: string, password: string): Observable<any> {
