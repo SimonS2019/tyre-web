@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { products } from 'src/data/products'; // This is use mock data, now we are using API
-import { Product } from 'src/product';
+import { Product } from 'src/app/models/product';
 import { TyreService } from '../tyre.service';
 import { ToastrService } from 'ngx-toastr';
 

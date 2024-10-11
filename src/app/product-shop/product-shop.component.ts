@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 // import { products } from 'src/data/products';// Do not use this, we are using API
-import { Product } from 'src/product';
+import { Product } from 'src/app/models/product';
 import { CartService } from '../cart.service';
 import { TyreService } from '../tyre.service';
 import { ToastrService } from 'ngx-toastr';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TyreService } from '../tyre.service';
-import { TyreDetails } from '../TyreDetails';
+import { TyreDetails } from '../models/TyreDetails';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

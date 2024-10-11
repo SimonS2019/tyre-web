@@ -2,29 +2,23 @@ import { Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/product';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-alert-details',
   templateUrl: './alert-details.component.html',
-  styleUrls: ['./alert-details.component.css']
+  styleUrls: ['./alert-details.component.css'],
 })
 export class AlertDetailsComponent implements OnInit {
-@Input() product : Product;
-@Input() isUnchanged;
-@Output() notify =new EventEmitter<Product>();
+  @Input() product: Product;
+  @Input() isUnchanged;
+  @Output() notify = new EventEmitter<Product>();
 
+  constructor() {}
 
+  ngOnInit(): void {}
 
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  clickChildMe()
-  {
+  clickChildMe() {
     this.notify.emit(this.product);
   }
-
 }
