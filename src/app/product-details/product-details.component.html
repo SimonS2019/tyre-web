@@ -5,37 +5,35 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" (click) = "enableBuying()">Enable/Disable Buying</button>
+    <button class="btn btn-primary" (click)="enableBuying()">Enable/Disable Buying</button>
     <div class="row">
         <div class="col-lg-8 mx-auto">
             <!-- List group-->
             <ul class="list-group shadow">
 
-                <div *ngFor = "let product of products">  
-                <!-- list group item-->
-                <li class="list-group-item">
-                    <!-- Custom content-->
-                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-                        <div class="media-body order-2 order-lg-1">
-                            <a [routerLink] = "['/products',product.id]" class="mt-0 font-weight-bold mb-2">{{product.name}}</a>
-                            <p class="font-italic text-muted mb-0 small">{{product.description}}</p>
-                            <div class="d-flex align-items-center justify-content-between mt-1">
-                                <h6 class="font-weight-bold my-2">{{product.price}}</h6>
-        
-                            </div>
-                        </div><img src={{product.imgaddress}} alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
-                    </div> <!-- End -->
-                    <app-alert-details [product] = "product" [isUnchanged] = isUnchanged (notify) = "clickMe(product)"></app-alert-details>
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let product of products"> <!-- list group item-->
 
-                </li> <!-- End -->
-            </div>
+
+
+                        <div class="card mb-4">
+                            <img [src]="product.imgaddress" class="card-img-top fixed-size" alt="{{ product.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a [routerLink]="['/products',product.id]" class="font-weight-bold">{{ product.name
+                                        }}</a>
+                                </h5>
+                                <p class="card-text">{{ product.description }}</p>
+                                <p class="card-text"><small class="text-muted">{{ product.price }}</small></p>
+                                <app-alert-details [product]="product" [isUnchanged]="isUnchanged"
+                                    (notify)="clickMe(product)"></app-alert-details>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </ul> <!-- End -->
         </div>
     </div>
 </div>
-
-
-
-
-
-
