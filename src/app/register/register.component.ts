@@ -26,6 +26,7 @@ export class RegisterComponent {
           this.toastr.success('Registration successful!', '', {
             timeOut: 3000, // 3 seconds
           });
+          this.autoLogin();
         },
         (error) => {
           console.error('Registration failed', error);
@@ -34,5 +35,22 @@ export class RegisterComponent {
           });
         }
       );
+  }
+
+  autoLogin() {
+    this.authService.login(this.email, this.password).subscribe(
+      (loginResponse) => {
+        console.log('Login successful', loginResponse);
+        this.toastr.success('Login successful!', '', {
+          timeOut: 3000, // 3 seconds
+        });
+      },
+      (loginError) => {
+        console.error('Login failed', loginError);
+        this.toastr.error('Login failed. Please try logging in manually.', '', {
+          timeOut: 3000, // 3 seconds
+        });
+      }
+    );
   }
 }
