@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TyreDetails } from './TyreDetails';
 import { environment } from 'src/environments/environment';
 import { Product } from 'src/product';
+import { Order } from './order';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +28,8 @@ export class TyreService {
     return this.http.get<Product>(this.configUrl+'products/'+id);
   }
 
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.configUrl + 'orders');
+  }
   // addTire() {}
 }
