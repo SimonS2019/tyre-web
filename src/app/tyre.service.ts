@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TyreDetails } from './TyreDetails';
 import { environment } from 'src/environments/environment';
+import { Product } from 'src/product';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,10 @@ export class TyreService {
   getTireDetails(): Observable<TyreDetails[]> {
     return this.http.get<TyreDetails[]>(this.configUrl+'tiretypes');
     // return this.http.get<TyreDetails[]>(this.configUrl);
+  }
+
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.configUrl+'products/all');
   }
 
   addTire() {}
