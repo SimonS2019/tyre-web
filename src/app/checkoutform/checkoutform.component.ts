@@ -4,6 +4,7 @@ import { CartService } from '../cart.service';
 import { CartProduct } from '../models/cart-product';
 import { TyreService } from '../tyre.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkoutform',
@@ -24,7 +25,8 @@ export class CheckoutformComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private tyreService: TyreService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,11 +54,18 @@ export class CheckoutformComponent implements OnInit {
         console.log('Order submitted successfully:', response);
         this.toastr.success('Order submitted successfully', 'Success');
         this.submitted = true;
+        this.goToMyAccount(); 
+        // go to my account page
       },
       (error) => {
         console.error('Error submitting order:', error);
         this.toastr.error('Error submitting order', 'Error');
       }
     );
+  }
+
+  // Method to navigate to the My Account page
+  goToMyAccount() {
+    this.router.navigate(['/my-account']);
   }
 }
