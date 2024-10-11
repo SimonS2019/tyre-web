@@ -31,4 +31,10 @@ export class AuthService {
       password,
     });
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  
 }

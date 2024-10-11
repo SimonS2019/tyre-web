@@ -8,14 +8,15 @@ import { ProductShopComponent } from './product-shop/product-shop.component';
 import { TyreDashboardComponent } from './tyre-dashboard/tyre-dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'products/:productId', component: ProductShopComponent },
   { path: 'products', component: ProductDetailsComponent },
-  { path: 'cart', component: CartItemsComponent },
+  { path: 'cart', component: CartItemsComponent, canActivate: [AuthGuard] },
   { path: '', component: LandingpageComponent },
-  { path: 'checkout', component: CheckoutformComponent },
-  { path: 'tireguide', component: TyreDashboardComponent },
+  { path: 'checkout', component: CheckoutformComponent, canActivate: [AuthGuard] },
+  { path: 'tireguide', component: TyreDashboardComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 ];
