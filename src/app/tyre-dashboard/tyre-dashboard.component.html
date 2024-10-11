@@ -1,0 +1,20 @@
+<h2>Tire Availability in Tire World</h2>
+<table class="table table-dark"
+    style="background-image: url('https://cdn.motor1.com/images/mgl/13jgw/s3/rolls-royce-black-badge-wraith-by-spofec.jpg'); background-position: center; background-size: cover;">
+    <thead>
+        <tr>
+            <th scope="col">SNO</th>
+            <th scope="col">Model Number</th>
+            <th scope="col">Size</th>
+            <th scope="col">Product Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tyre of tyreDetails; let ndx = index">
+            <th scope="row">{{ndx + 1}}</th>
+            <td>{{tyre.model_number}}</td>
+            <td>{{tyre.size}}</td>
+            <td>{{tyre.product_name}}</td>
+        </tr>
+    </tbody>
+</table>
