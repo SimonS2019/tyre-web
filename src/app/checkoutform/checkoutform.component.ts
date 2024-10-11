@@ -30,7 +30,7 @@ export class CheckoutformComponent implements OnInit {
   ngOnInit(): void {
     const cartProducts: CartProduct[] = this.cartService.getProducts();
     this.products = cartProducts.map((cp) => ({
-      productId: cp.product.id,
+      productId: cp.product._id,
       quantity: cp.quantity,
     }));
   }

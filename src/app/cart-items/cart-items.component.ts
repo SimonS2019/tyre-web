@@ -32,7 +32,7 @@ export class CartItemsComponent implements OnInit {
   }
 
   deleteProduct(product: CartProduct) {
-    this.cart.removeProductFromCart(product.product.id);
+    this.cart.removeProductFromCart(product.product._id);
     this.products = this.cart.getProducts();
     this.updateSum();
   }

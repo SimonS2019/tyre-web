@@ -12,7 +12,9 @@ export class CartService {
   constructor() { }
 
   addProductstoCart(product: Product, quantity: number = 1): void {
-    const existingProduct = this.cartProduct.find(p => p.product.id === product.id);
+    console.log(product);
+    
+    const existingProduct = this.cartProduct.find(p => p.product._id === product._id);
     if (existingProduct) {
       existingProduct.quantity += quantity;
     } else {
@@ -30,7 +32,7 @@ export class CartService {
     this.cartProduct = [];
   }
 
-  removeProductFromCart(id: number): void {
-    this.cartProduct = this.cartProduct.filter(p => p.product.id !== id);
+  removeProductFromCart(id: string): void {
+    this.cartProduct = this.cartProduct.filter(p => p.product._id !== id);
   }
 }
