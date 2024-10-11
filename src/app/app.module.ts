@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthInterceptor } from './auth.interceptor';
     TyreDashboardComponent,
     LoginComponent,
     RegisterComponent,
+    MyAccountComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,16 +9,26 @@ import { TyreDashboardComponent } from './tyre-dashboard/tyre-dashboard.componen
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 const routes: Routes = [
   { path: 'products/:productId', component: ProductShopComponent },
   { path: 'products', component: ProductDetailsComponent },
   { path: 'cart', component: CartItemsComponent, canActivate: [AuthGuard] },
   { path: '', component: LandingpageComponent },
-  { path: 'checkout', component: CheckoutformComponent, canActivate: [AuthGuard] },
-  { path: 'tireguide', component: TyreDashboardComponent},
+  {
+    path: 'checkout',
+    component: CheckoutformComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'tireguide', component: TyreDashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {
+    path: 'my-account',
+    component: MyAccountComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
