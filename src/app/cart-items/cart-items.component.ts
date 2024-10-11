@@ -21,12 +21,12 @@ export class CartItemsComponent implements OnInit {
   }
 
   updateSum() {
-    this.sum = 0;
-    for (let i = 0; i < this.products.length; i++) {
-      this.sum = this.sum + this.products[i].price;
-    }
+    // this.sum = 0;
+    // for (let i = 0; i < this.products.length; i++) {
+    //   this.sum = this.sum + this.products[i].price;
+    // }
 
-    this.totalPrice = this.sum + this.shippingPrice;
+    // this.totalPrice = this.sum + this.shippingPrice;
   }
 
   onKey(product, value) {

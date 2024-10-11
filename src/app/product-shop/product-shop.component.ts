@@ -13,9 +13,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductShopComponent implements OnInit {
   product: Product;
+  quantity: number = 1;
+  disabledButton: boolean = false;
   submitted = false;
   text: string = 'Add to Cart';
-  disabledButton = false;
+
   constructor(
     private tyreService: TyreService,
     private toastr: ToastrService,
@@ -23,10 +25,8 @@ export class ProductShopComponent implements OnInit {
     private cart: CartService
   ) {}
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const id = Number(routeParams.get('productId'));
-    // this.product = products.find((product) => product.id === id);
-    this.tyreService.getProductById(id).subscribe(
+    const productId = this.route.snapshot.paramMap.get('productId');
+    this.tyreService.getProductById(+productId).subscribe(
       (data: Product) => {
         // console.log(data);
         this.product = data;
@@ -40,8 +40,7 @@ export class ProductShopComponent implements OnInit {
   addToCart() {
     this.disabledButton = true;
     this.text = 'Added to Cart';
-    //service
     this.submitted = true;
-    this.cart.addProductstoCart(this.product);
+    this.cart.addProductstoCart(this.product, this.quantity);
   }
 }
