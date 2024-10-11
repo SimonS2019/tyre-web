@@ -10,10 +10,9 @@ import { CartProduct } from '../models/cart-product';
 export class CartItemsComponent implements OnInit {
   products: CartProduct[] = [];
   sum: number = 0;
-  shippingPrice: number = 10;
   totalPrice: number = 0;
 
-  constructor(private cart: CartService) {}
+  constructor(public cart: CartService) {}
 
   ngOnInit(): void {
     this.products = this.cart.getProducts();
@@ -29,7 +28,7 @@ export class CartItemsComponent implements OnInit {
       (acc, product) => acc + product.product.price * product.quantity,
       0
     );
-    this.totalPrice = this.sum + this.shippingPrice;
+    this.totalPrice = this.sum + this.cart.shippingPrice;
   }
 
   deleteProduct(product: CartProduct) {

@@ -7,6 +7,7 @@ import { CartProduct } from './models/cart-product';
 })
 export class CartService {
   cartProduct: CartProduct[] = [];
+  shippingPrice: number = 20;
 
   constructor() { }
 

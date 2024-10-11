@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '../models/Contact';
+import { ContactDetails, Order, ProductOrder } from '../models/Order';
+import { CartService } from '../cart.service';
+import { CartProduct } from '../models/cart-product';
 
 @Component({
   selector: 'app-checkoutform',
@@ -8,20 +10,40 @@ import { Contact } from '../models/Contact';
 })
 export class CheckoutformComponent implements OnInit {
   msg: string = 'gmail.com';
-  contact = new Contact();
+  contactDetails: ContactDetails = {
+    name: '',
+    phone: '',
+    email: '',
+    address: ''
+  };
+  products: ProductOrder[] = [];
   submitted = false;
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(public cartService: CartService) {}
+
+  ngOnInit(): void {
+    const cartProducts: CartProduct[] = this.cartService.getProducts();
+    this.products = cartProducts.map(cp => ({
+      productId: cp.product.id,
+      quantity: cp.quantity
+    }));
+  }
 
   submit(form) {
-    this.contact.firstName = form.firstName;
-    this.contact.lastName = form.lastName;
-    this.contact.email = form.email;
-    window.alert('Cart is successfully Submitted by' + this.contact.firstName);
+    this.contactDetails.name = form.name;
+    this.contactDetails.phone = form.phone;
+    this.contactDetails.email = form.email;
+    this.contactDetails.address = form.address;
+
+    const order: Order = {
+      products: this.products,
+      contactDetails: this.contactDetails,
+      shippingPrice: this.cartService.shippingPrice
+    };
+
+    window.alert('Order is successfully submitted by ' + this.contactDetails.name);
     this.submitted = true;
 
-    console.log(form);
-    //
+    console.log(order);
   }
 }
