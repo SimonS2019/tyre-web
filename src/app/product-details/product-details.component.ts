@@ -32,7 +32,8 @@ export class ProductDetailsComponent implements OnInit {
 
   clickMe(product: Product) {
     window.alert(
-      product.name + 'Course videos are available in your location to purchase'
+      product.name +
+        ' fit your car and are available in your location to purchase'
     );
   }
 
