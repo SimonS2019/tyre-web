@@ -1,13 +1,19 @@
-body {
-    background: linear-gradient(to right, #c04848, #480048);
-    min-height: 100vh
+.product-card {
+    margin-bottom: 20px;
 }
 
-.text-gray {
-    color: #aaa
+.product-img {
+    height: 300px;
+    object-fit: cover;
 }
 
-img {
-    height: 170px;
-    width: 140px
+.price-tag {
+    color: orange;
+    font-size: 24px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

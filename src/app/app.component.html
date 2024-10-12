@@ -25,6 +25,9 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <!-- auth regarding -->
+      <li class="nav-item">
+        <span class="nav-link" *ngIf="authService.isLoggedIn()">Your car is Mazda MX-5 2010</span>
+      </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="!authService.isLoggedIn()">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
