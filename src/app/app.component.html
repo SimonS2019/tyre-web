@@ -19,6 +19,9 @@
       <li class="nav-item" routerLinkActive="active" *ngIf="authService.isLoggedIn()">
         <a class="nav-link" routerLink="/my-account">My Account</a>
       </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAdmin()">
+        <a class="nav-link" routerLink="/add-product">Add Product(admin only)</a>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <!-- auth regarding -->

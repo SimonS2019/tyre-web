@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { MyAccountComponent } from './my-account/my-account.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: 'products/:productId', component: ProductShopComponent },
@@ -29,6 +31,8 @@ const routes: Routes = [
     component: MyAccountComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] }, // Protect this route
+
 ];
 
 @NgModule({

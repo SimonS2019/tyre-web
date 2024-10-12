@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators'; // Import tap
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode'; // Correct import for jwt-decode
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,20 @@ export class AuthService {
       password,
     });
   }
+  
+
+  getRoleFromToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded: any = jwt_decode(token);
+      return decoded.role || null;
+    }
+    return null;
+  }
+
+  isAdmin(): boolean {
+    return this.getRoleFromToken() === 'admin';
+  }
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
@@ -41,3 +56,5 @@ export class AuthService {
     this.router.navigate(['/login']); // Navigate to login page
   }
 }
+
+
