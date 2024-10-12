@@ -7,33 +7,32 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <!-- List group-->
-            <ul class="list-group shadow">
+        <!-- List group-->
+        <ul class="list-group shadow">
 
-                <div class="row">
-                    <div class="col-md-4" *ngFor="let product of products"> <!-- list group item-->
-
-
-
-                        <div class="card mb-4">
-                            <img [src]="product.imgaddress" class="card-img-top fixed-size" alt="{{ product.name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a [routerLink]="['/products',product._id]" class="font-weight-bold">{{ product.name
-                                        }}</a>
-                                </h5>
-                                <p class="card-text">{{ product.description }}</p>
-                                <p class="card-text"><small class="text-muted">{{ product.price }}</small></p>
-                                <app-alert-details [product]="product" [isUnchanged]="isUnchanged"
-                                    (notify)="clickMe(product)"></app-alert-details>
-                            </div>
+            <div class="row">
+                <div class="col-md-3" *ngFor="let product of products"> <!-- list group item-->
+                    <div class="card mb-4 item">
+                        <img [src]="product.imgaddress" class="card-img-top fixed-size" alt="{{ product.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a [routerLink]="['/products',product._id]" class="font-weight-bold">{{ product.name
+                                    }}</a>
+                            </h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text"><small class="text-muted">{{ product.price }}</small></p>
 
                         </div>
-
+                        <div  style="height: 200px; position: relative;">
+                            <div style="position: absolute; bottom: 0; width: 100%;">
+                                <app-alert-details class="card-body" [product]="product" [isUnchanged]="isUnchanged"
+                                    (notify)="clickMe(product)"></app-alert-details>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-            </ul> <!-- End -->
-        </div>
+            </div>
+        </ul> <!-- End -->
     </div>
 </div>
