@@ -35,4 +35,8 @@ export class TyreService {
   submitOrder(order: Order): Observable<Order> {  
     return this.http.post<Order>(this.configUrl + 'orders', order);
   }
+
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.configUrl + 'products/addone', product);
+  }
 }
