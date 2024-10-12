@@ -2,6 +2,15 @@
     --input-padding-x: .75rem;
     --input-padding-y: .75rem;
   }
+
+  .jumbotron {
+    background-image: url('/assets/bg1.webp');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+  }
+
+
   
   body {
     display: -ms-flexbox;

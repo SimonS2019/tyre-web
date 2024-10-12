@@ -1,20 +1,23 @@
-<h2>Tire Availability in Tire World</h2>
-<table class="table table-dark"
-    style="background-image: url('https://cdn.motor1.com/images/mgl/13jgw/s3/rolls-royce-black-badge-wraith-by-spofec.jpg'); background-position: center; background-size: cover;">
-    <thead>
-        <tr>
-            <th scope="col">SNO</th>
-            <th scope="col">Model Number</th>
-            <th scope="col">Size</th>
-            <th scope="col">Product Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let tyre of tyreDetails; let ndx = index">
-            <th scope="row">{{ndx + 1}}</th>
-            <td>{{tyre.model_number}}</td>
-            <td>{{tyre.size}}</td>
-            <td>{{tyre.product_name}}</td>
-        </tr>
-    </tbody>
-</table>
+<br>
+<div class="container">
+    <h2>Find Your Perfect Tyre for Every Journey!</h2>
+</div>
+<br>
+
+<div *ngIf="tyreDetails.length > 0; else noData">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let tyre of tyreDetails">
+            <div class="card mb-4">
+                <img [src]="tyre.image_url" class="card-img-top fixed-size" alt="{{ tyre.type }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tyre.type }}</h5>
+                    <p class="card-text">{{ tyre.description }}</p>
+                    <p class="card-text"><small class="text-muted">{{ tyre.long_description }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noData>
+    <p>No tyre details available.</p>
+</ng-template>
