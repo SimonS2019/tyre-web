@@ -40,4 +40,6 @@ export class ProductDetailsComponent implements OnInit {
   enableBuying() {
     this.isUnchanged = !this.isUnchanged;
   }
+
+  
 }
