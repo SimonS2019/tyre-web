@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TyreService } from '../tyre.service';
-import { TyreDetails } from '../TyreDetails';
+import { TyreDetails } from '../models/TyreDetails';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -17,10 +17,15 @@ export class TyreDashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-
-    this.tyreService
-      .getTireDetails()
-      .subscribe((data) => (this.tyreDetails = data));
+    this.tyreService.getTireDetails().subscribe(
+      (data) => {
+        console.log(data);
+        this.tyreDetails = data;
+      },
+      (error) => {
+        console.error(error);
+        this.toastr.error('Failed to load tyre details.', 'Error');
+      }
+    );
   }
 }

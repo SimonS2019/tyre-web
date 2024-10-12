@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  configUrl: 'https://your-production-url.com/'
 };

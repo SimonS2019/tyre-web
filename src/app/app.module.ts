@@ -10,9 +10,14 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CheckoutformComponent } from './checkoutform/checkoutform.component';
 import { FormsModule } from '@angular/forms';
 import { TyreDashboardComponent } from './tyre-dashboard/tyre-dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthInterceptor } from './auth.interceptor';
+import { MyAccountComponent } from './my-account/my-account.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,10 @@ import { ToastrModule } from 'ngx-toastr';
     CheckoutformComponent,
     LandingpageComponent,
     TyreDashboardComponent,
+    LoginComponent,
+    RegisterComponent,
+    MyAccountComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,13 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

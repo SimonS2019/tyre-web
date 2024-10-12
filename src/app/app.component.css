@@ -2,3 +2,9 @@ body {
     background: linear-gradient(to right, #c04848, #480048);
     min-height: 100vh
 }
+
+.content-container {
+    padding-left: 20px; /* Adjust the value as needed */
+    padding-right: 20px; /* Adjust the value as needed */
+    padding-top: 20px; /* Adjust the value as needed */
+  }
