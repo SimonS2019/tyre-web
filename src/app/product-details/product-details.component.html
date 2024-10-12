@@ -13,21 +13,21 @@
             <div class="row">
                 <div class="col-md-3" *ngFor="let product of products"> <!-- list group item-->
                     <div class="card mb-4 item">
-                        <img [src]="product.imgaddress" class="card-img-top fixed-size" alt="{{ product.name }}">
-                        <div class="card-body">
+                        <img [routerLink]="['/products',product._id]" [src]="product.imgaddress"
+                            class="card-img-top fixed-size" alt="{{ product.name }}">
+                        <div class="card-body" [routerLink]="['/products',product._id]">
                             <h5 class="card-title">
                                 <a [routerLink]="['/products',product._id]" class="font-weight-bold">{{ product.name
                                     }}</a>
                             </h5>
                             <p class="card-text">{{ product.description }}</p>
-                            <p class="card-text"><small class="text-muted">{{ product.price }}</small></p>
-
+                            <p class="card-text"><span class="orange-text large-text">${{ product.price
+                                    }}</span></p>
                         </div>
-                        <div  style="height: 200px; position: relative;">
-                            <div style="position: absolute; bottom: 0; width: 100%;">
-                                <app-alert-details class="card-body" [product]="product" [isUnchanged]="isUnchanged"
-                                    (notify)="clickMe(product)"></app-alert-details>
-                            </div>
+                        <div class="buttonarea">
+
+                            <app-alert-details class="card-body" [product]="product" [isUnchanged]="isUnchanged"
+                                (notify)="clickMe(product)"></app-alert-details>
                         </div>
                     </div>
 

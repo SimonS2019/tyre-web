@@ -39,6 +39,21 @@
     border-bottom: 1px solid #ddd;
 }
 
-.item{
+.item {
     height: 600px;
+}
+
+.orange-text {
+    color: orange;
+}
+
+.large-text {
+    font-size: 24px;
+    /* Adjust the size as needed */
+}
+
+.buttonarea {
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 3px;
 }
