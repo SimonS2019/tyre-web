@@ -1,0 +1,61 @@
+<div class="container my-5">
+    <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-5">
+            <img [src]="product?.imgaddress" alt="{{ product?.name }}" class="img-fluid rounded" />
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-7">
+            <h2 class="product-name">{{ product?.name }}</h2>
+            <p class="product-description">{{ product?.description }}</p>
+            <h4 class="product-price">NZD {{ product?.price }}</h4>
+
+            <div class="form-group">
+                <label for="quantity" class="font-weight-bold">Quantity:</label>
+                <input type="number" id="quantity" [(ngModel)]="quantity" [min]="1" [max]="product?.quantity"
+                    class="form-control w-25 d-inline-block" />
+            </div>
+
+            <!-- Stock Status -->
+            <p class="stock-status" [ngClass]="{
+            'text-success': product?.status === 'In Stock',
+            'text-danger': product?.status !== 'In Stock'
+          }">
+                {{ product?.status }}
+            </p>
+
+            <!-- Add to Cart Button -->
+            <button class="btn btn-primary btn-lg mt-3" [disabled]="disabledButton || product?.status !== 'In Stock'"
+                (click)="addToCart()">
+                {{ text }}
+            </button>
+        </div>
+    </div>
+
+    <!-- New Review Area -->
+    <div class="review-area mt-5 p-4 bg-light border rounded">
+        <h3 class="mb-4">Customer Reviews</h3>
+        <div class="review mb-3 p-3 bg-white border rounded shadow-sm">
+            <p class="mb-1"><strong>John Doe:</strong></p>
+            <p class="mb-0">This product is amazing! Highly recommend it to everyone.</p>
+            <div class="text-warning">
+                ★★★★★
+            </div>
+        </div>
+        <div class="review mb-3 p-3 bg-white border rounded shadow-sm">
+            <p class="mb-1"><strong>Jane Smith:</strong></p>
+            <p class="mb-0">Great value for the price. Will definitely buy again.</p>
+            <div class="text-warning">
+                ★★★★☆
+            </div>
+        </div>
+        <div class="review mb-3 p-3 bg-white border rounded shadow-sm">
+            <p class="mb-1"><strong>Emily Johnson:</strong></p>
+            <p class="mb-0">Exceeded my expectations. Fantastic quality and fast shipping.</p>
+            <div class="text-warning">
+                ★★★★★
+            </div>
+        </div>
+    </div>
+</div>

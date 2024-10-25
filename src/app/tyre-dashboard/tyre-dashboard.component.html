@@ -1,0 +1,23 @@
+<br>
+<div class="container">
+    <h2>Find Your Perfect Tyre for Every Journey!</h2>
+</div>
+<br>
+
+<div *ngIf="tyreDetails.length > 0; else noData">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let tyre of tyreDetails">
+            <div class="card mb-4">
+                <img [src]="tyre.image_url" class="card-img-top fixed-size" alt="{{ tyre.type }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tyre.type }}</h5>
+                    <p class="card-text">{{ tyre.description }}</p>
+                    <p class="card-text"><small class="text-muted">{{ tyre.long_description }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noData>
+    <p>No tyre details available.</p>
+</ng-template>

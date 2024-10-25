@@ -1,0 +1,19 @@
+.product-card {
+    margin-bottom: 20px;
+}
+
+.product-img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.price-tag {
+    color: orange;
+    font-size: 24px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

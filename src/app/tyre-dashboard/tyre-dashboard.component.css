@@ -1,0 +1,19 @@
+h2 {
+    color: greenyellow;
+}
+
+.fixed-size {
+    width: 100%;
+    height: 400px;
+    /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+/* Center the h2 element horizontally */
+.container {
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+    /* Center text inside the h2 */
+}

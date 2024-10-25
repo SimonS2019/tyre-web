@@ -1,0 +1,50 @@
+.container {
+  background-color: white;
+  height: 80vh;
+  padding-top: 100px;
+}
+
+/* Styling for the product name */
+.product-name {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Styling for the product description */
+.product-description {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Styling for the product price */
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff;
+  margin-top: 15px;
+}
+
+/* Styling for the stock status */
+.stock-status {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+/* Add-to-cart button styling */
+.btn-primary:disabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .product-name {
+    font-size: 1.5rem;
+  }
+  .product-price {
+    font-size: 1.3rem;
+  }
+}

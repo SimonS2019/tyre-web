@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Checkout Form</h2>
+  <form #checkoutForm="ngForm" (ngSubmit)="submit(checkoutForm.value)">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" class="form-control" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" class="form-control" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" class="form-control" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" class="form-control" ngModel required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="submitted">Submit</button>
+  </form>
+
+  <!-- <div *ngIf="submitted">
+    <h3>Order Summary</h3>
+    <p>Name: {{ contactDetails.name }}</p>
+    <p>Phone: {{ contactDetails.phone }}</p>
+    <p>Email: {{ contactDetails.email }}</p>
+    <p>Address: {{ contactDetails.address }}</p>
+    <h4>Products</h4>
+    <ul>
+      <li *ngFor="let product of products">
+        Product ID: {{ product.productId }}, Quantity: {{ product.quantity }}
+      </li>
+    </ul>
+  </div>
+</div> -->
