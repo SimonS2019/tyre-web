@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  configUrl: 'http://localhost:3000/'
+  // configUrl: 'http://localhost:3000/'
+  configUrl: 'https://tyre-api-simons2019s-projects.vercel.app/',
 };
 
 /*
