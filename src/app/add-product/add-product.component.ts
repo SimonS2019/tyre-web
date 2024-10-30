@@ -13,9 +13,8 @@ export class AddProductComponent implements OnInit {
     name: '',
     price: 0,
     quantity: 0,
-    status: '',
     description: '',
-    imgaddress: ''
+    img: ''
   };
 
   constructor(private tyreService: TyreService, private toastr: ToastrService) { }
