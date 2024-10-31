@@ -20,7 +20,7 @@
         required></textarea>
     </div>
     <div class="form-group">
-      <label for="img">Image</label>
+      <label for="img">Image ( Please drag your image to this area )</label>
       <ngx-file-drop (onFileDrop)="onFileDrop($event)" [multiple]="false" [accept]="'image/*'">
       </ngx-file-drop>
       <div *ngIf="fileName" class="file-name">
