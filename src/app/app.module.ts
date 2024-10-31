@@ -18,6 +18,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { ProductListAdminComponent } from './admin/product-list-admin/product-list-admin.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     RegisterComponent,
     MyAccountComponent,
     AddProductComponent,
+    ProductListAdminComponent,
   ],
   imports: [
     BrowserModule,

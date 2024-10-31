@@ -12,6 +12,7 @@ import { AuthGuard } from './auth.guard';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminGuard } from './guards/admin.guard';
+import { ProductListAdminComponent } from './admin/product-list-admin/product-list-admin.component';
 
 const routes: Routes = [
   { path: 'products/:productId', component: ProductShopComponent },
@@ -32,6 +33,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] }, // Protect this route
+  //all products admin
+  { path: 'admin/products', component: ProductListAdminComponent, canActivate: [AdminGuard] },
 
 ];
 
