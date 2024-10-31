@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    NgxFileDropModule // File drop module
   ],
   providers: [
     {

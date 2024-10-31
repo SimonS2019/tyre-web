@@ -2,8 +2,7 @@
     <div class="row">
         <!-- Product Image -->
         <div class="col-md-5">
-            <img [src]="product?.imgaddress" alt="{{ product?.name }}" class="img-fluid rounded" />
-        </div>
+            <img *ngIf="product?.img" [src]="'data:' + product?.imgType + ';base64,' + product?.img" alt="{{ product?.name }}" class="img-fluid rounded" />     </div>
 
         <!-- Product Details -->
         <div class="col-md-7">
@@ -17,16 +16,10 @@
                     class="form-control w-25 d-inline-block" />
             </div>
 
-            <!-- Stock Status -->
-            <p class="stock-status" [ngClass]="{
-            'text-success': product?.status === 'In Stock',
-            'text-danger': product?.status !== 'In Stock'
-          }">
-                {{ product?.status }}
-            </p>
+    
 
             <!-- Add to Cart Button -->
-            <button class="btn btn-primary btn-lg mt-3" [disabled]="disabledButton || product?.status !== 'In Stock'"
+            <button class="btn btn-primary btn-lg mt-3" [disabled]="disabledButton"
                 (click)="addToCart()">
                 {{ text }}
             </button>

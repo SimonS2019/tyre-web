@@ -1,30 +1,32 @@
-<div class="container">
-    <h2>Add New Product</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" class="form-control" [(ngModel)]="product.name" name="name" required>
+<div class="container" style="background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
+  <h2>Add New Product</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="product.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" id="price" class="form-control" [(ngModel)]="product.price" name="price" required>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" class="form-control" [(ngModel)]="product.quantity" name="quantity" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" class="form-control" [(ngModel)]="product.description" name="description"
+        required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="img">Image ( Please drag your image to this area )</label>
+      <ngx-file-drop (onFileDrop)="onFileDrop($event)" [multiple]="false" [accept]="'image/*'">
+      </ngx-file-drop>
+      <div *ngIf="fileName" class="file-name">
+        {{ fileName }}
       </div>
-      <div class="form-group">
-        <label for="price">Price:</label>
-        <input type="number" id="price" class="form-control" [(ngModel)]="product.price" name="price" required>
-      </div>
-      <div class="form-group">
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" class="form-control" [(ngModel)]="product.quantity" name="quantity" required>
-      </div>
-      <div class="form-group">
-        <label for="status">Status:</label>
-        <input type="text" id="status" class="form-control" [(ngModel)]="product.status" name="status" required>
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea id="description" class="form-control" [(ngModel)]="product.description" name="description" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="imgaddress">Image Address:</label>
-        <input type="text" id="imgaddress" class="form-control" [(ngModel)]="product.imgaddress" name="imgaddress" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Product</button>
-    </form>
-  </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>
