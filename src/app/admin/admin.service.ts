@@ -29,4 +29,8 @@ export class AdminService {
     return this.http.get<Product>(this.configUrl + 'products/' + id);
   }
 
+  deleteProduct(id: string): Observable<void> {
+    return this.http.delete<void>(this.configUrl + 'products/' + id);
+  }
+
 }

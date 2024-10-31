@@ -25,21 +25,17 @@ export class ProductListAdminComponent implements OnInit {
   }
 
   updateProduct(productId: string): void {
-    // this.router.navigate(['/product-update', productId]);
-    console.log('Update product with id: ', productId);
-    
+    this.router.navigate(['/product-update', productId]);
   }
 
   deleteProduct(productId: string): void {
-    console.log('Delete product with id: ', productId);
-    
-    // this.adminService.deleteProduct(productId).subscribe(
-    //   () => {
-    //     this.products = this.products.filter(product => product.id !== productId);
-    //   },
-    //   (error) => {
-    //     console.error('Failed to delete product', error);
-    //   }
-    // );
+    this.adminService.deleteProduct(productId).subscribe(
+      () => {
+        this.products = this.products.filter(product => product._id !== productId);
+      },
+      (error) => {
+        console.error('Failed to delete product', error);
+      }
+    );
   }
 }
