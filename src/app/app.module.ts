@@ -20,6 +20,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { ProductListAdminComponent } from './admin/product-list-admin/product-list-admin.component';
 import { ProductUpdateComponent } from './admin/product-update/product-update.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProductUpdateComponent } from './admin/product-update/product-update.co
     AddProductComponent,
     ProductListAdminComponent,
     ProductUpdateComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { ProductUpdateComponent } from './admin/product-update/product-update.co
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    NgxFileDropModule // File drop module
+    NgxFileDropModule, // File drop module
+    MatDialogModule
   ],
   providers: [
     {
