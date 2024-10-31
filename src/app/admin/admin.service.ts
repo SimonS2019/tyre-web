@@ -33,4 +33,8 @@ export class AdminService {
     return this.http.delete<void>(this.configUrl + 'products/' + id);
   }
 
+  updateProduct(id: string, productData: FormData): Observable<Product> {
+    return this.http.put<Product>(this.configUrl + 'products/' + id, productData);
+  }
+
 }
