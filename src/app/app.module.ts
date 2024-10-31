@@ -38,7 +38,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddProductComponent,
     ProductListAdminComponent,
     ProductUpdateComponent,
-    PopupComponent
   ],
   imports: [
     BrowserModule,
