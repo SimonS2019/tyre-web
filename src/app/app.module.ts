@@ -21,6 +21,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { ProductListAdminComponent } from './admin/product-list-admin/product-list-admin.component';
 import { ProductUpdateComponent } from './admin/product-update/product-update.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddToCartDialogComponent } from './add-to-cart-dialog/add-to-cart-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddProductComponent,
     ProductListAdminComponent,
     ProductUpdateComponent,
+    AddToCartDialogComponent,
   ],
   imports: [
     BrowserModule,
