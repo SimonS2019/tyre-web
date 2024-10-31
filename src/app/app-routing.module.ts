@@ -13,6 +13,7 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ProductListAdminComponent } from './admin/product-list-admin/product-list-admin.component';
+import { ProductUpdateComponent } from './admin/product-update/product-update.component';
 
 const routes: Routes = [
   { path: 'products/:productId', component: ProductShopComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'add-product', component: AddProductComponent, canActivate: [AdminGuard] }, // Protect this route
   //all products admin
   { path: 'admin/products', component: ProductListAdminComponent, canActivate: [AdminGuard] },
+  { path: 'admin/product-update/:id', component: ProductUpdateComponent , canActivate: [AdminGuard]},
 
 ];
 

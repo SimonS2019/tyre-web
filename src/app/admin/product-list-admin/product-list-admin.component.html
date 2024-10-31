@@ -15,7 +15,7 @@
         <td>{{ product.price | currency }}</td>
         <td>{{ product.description }}</td>
         <td>
-          <button (click)="updateProduct(product._id)">Update</button>
+          <button (click)="navigateToProductUpdate(product._id)">Update</button>
           <button (click)="deleteProduct(product._id)">Delete</button>
         </td>
       </tr>

@@ -19,6 +19,7 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { ProductListAdminComponent } from './admin/product-list-admin/product-list-admin.component';
+import { ProductUpdateComponent } from './admin/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProductListAdminComponent } from './admin/product-list-admin/product-li
     MyAccountComponent,
     AddProductComponent,
     ProductListAdminComponent,
+    ProductUpdateComponent,
   ],
   imports: [
     BrowserModule,

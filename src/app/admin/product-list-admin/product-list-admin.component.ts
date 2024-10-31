@@ -24,8 +24,8 @@ export class ProductListAdminComponent implements OnInit {
     );
   }
 
-  updateProduct(productId: string): void {
-    this.router.navigate(['/product-update', productId]);
+  navigateToProductUpdate(productId: string): void {
+    this.router.navigate(['/admin/product-update', productId]);
   }
 
   deleteProduct(productId: string): void {
