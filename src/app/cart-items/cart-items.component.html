@@ -17,7 +17,7 @@
                             <td class="col-sm-8 col-md-6">
                                 <div class="media">
                                     <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                            src={{product.product.imgaddress}} style="width: 72px; height: 72px;"> </a>
+                                            [src]="'data:' + product.product?.imgType + ';base64,' + product.product?.img" style="width: 72px; height: 72px;"> </a>
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="#">{{product.product.name}}</a></h4>
 
