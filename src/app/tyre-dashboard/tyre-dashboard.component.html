@@ -8,7 +8,8 @@
     <div class="row">
         <div class="col-md-4" *ngFor="let tyre of tyreDetails">
             <div class="card mb-4">
-                <img [src]="tyre.image_url" class="card-img-top fixed-size" alt="{{ tyre.type }}">
+                <img [src]="'assets/guide/' + tyre.image_name" class="card-img-top fixed-size" alt="{{ tyre.type }}">
+     
                 <div class="card-body">
                     <h5 class="card-title">{{ tyre.type }}</h5>
                     <p class="card-text">{{ tyre.description }}</p>

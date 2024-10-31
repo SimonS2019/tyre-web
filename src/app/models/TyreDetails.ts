@@ -3,6 +3,6 @@ export interface TyreDetails {
     type: string
     description: string
     long_description: string
-    image_url: string
+    image_name: string
   }
   
