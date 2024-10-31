@@ -18,6 +18,7 @@ export class AddProductComponent implements OnInit {
     img: ''
   };
   imgFile: File | null = null;
+  fileName: string;
 
   constructor(private tyreService: TyreService, private toastr: ToastrService) { }
 
@@ -32,6 +33,7 @@ export class AddProductComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
           this.imgFile = file;
+          this.fileName = file.name;
         });
       }
     }
