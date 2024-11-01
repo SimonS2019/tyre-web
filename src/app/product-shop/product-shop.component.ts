@@ -16,7 +16,6 @@ export class ProductShopComponent implements OnInit {
   product: Product;
   quantity: number = 1;
   disabledButton: boolean = false;
-  submitted = false;
   text: string = 'Add to Cart';
 
   constructor(
@@ -42,9 +41,6 @@ export class ProductShopComponent implements OnInit {
   }
 
   addToCart(content: any) {
-    this.disabledButton = true;
-    this.text = 'Added to Cart';
-    this.submitted = true;
     this.cart.addProductstoCart(this.product, this.quantity);
     this.modalService.open(content);
   }
