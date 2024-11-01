@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { products } from 'src/data/products';// Do not use this, we are using API
 import { Product } from 'src/app/models/product';
 import { CartService } from '../cart.service';
@@ -23,7 +23,8 @@ export class ProductShopComponent implements OnInit {
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private cart: CartService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) {}
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('productId');
@@ -44,4 +45,15 @@ export class ProductShopComponent implements OnInit {
     this.cart.addProductstoCart(this.product, this.quantity);
     this.modalService.open(content);
   }
+
+  goToProductsList(modal: any) {
+    modal.close();
+    this.router.navigate(['/products']);
+  }
+
+  goToCart(modal: any) {
+    modal.close();
+    this.router.navigate(['/cart']);
+  }
+  
 }
