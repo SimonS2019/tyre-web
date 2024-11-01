@@ -18,6 +18,10 @@ export class ProductUpdateComponent implements OnInit {
     quantity: 0,
     description: '',
     img: '',
+    imgType: '',
+    overview: '',
+    specifications: '',
+    performance_and_warranty: ''
   };
   imgFile: File | null = null;
   fileName: string;
@@ -51,30 +55,34 @@ export class ProductUpdateComponent implements OnInit {
         fileEntry.file((file: File) => {
           this.imgFile = file;
           this.fileName = file.name;
+          this.product.imgType = file.type; // Set the MIME type
         });
       }
     }
   }
 
   onSubmit(): void {
-    if (this.imgFile) {
-      const formData = new FormData();
-      formData.append('name', this.product.name);
-      formData.append('price', this.product.price.toString());
-      formData.append('quantity', this.product.quantity.toString());
-      formData.append('description', this.product.description);
-      formData.append('img', this.imgFile);
+    const formData = new FormData();
+    formData.append('name', this.product.name);
+    formData.append('price', this.product.price.toString());
+    formData.append('quantity', this.product.quantity.toString());
+    formData.append('description', this.product.description);
+    formData.append('overview', this.product.overview);
+    formData.append('specifications', this.product.specifications);
+    formData.append('performance_and_warranty', this.product.performance_and_warranty);
 
-      this.adminService.updateProduct(this.productId, formData).subscribe(
-        (response) => {
-          this.toastr.success('Product updated successfully!');
-        },
-        (error) => {
-          this.toastr.error('Failed to update product.');
-        }
-      );
-    } else {
-      this.toastr.error('Please upload an image.');
+    if (this.imgFile) {
+      formData.append('img', this.imgFile);
+      formData.append('imgType', this.product.imgType);
     }
+
+    this.adminService.updateProduct(this.productId, formData).subscribe(
+      (response) => {
+        this.toastr.success('Product updated successfully!');
+      },
+      (error) => {
+        this.toastr.error('Failed to update product.');
+      }
+    );
   }
 }

@@ -15,7 +15,11 @@ export class AddProductComponent implements OnInit {
     price: 0,
     quantity: 0,
     description: '',
-    img: ''
+    img: '',
+    imgType: '',
+    overview: '',
+    specifications: '',
+    performance_and_warranty: ''
   };
   imgFile: File | null = null;
   fileName: string;
@@ -34,6 +38,7 @@ export class AddProductComponent implements OnInit {
         fileEntry.file((file: File) => {
           this.imgFile = file;
           this.fileName = file.name;
+          this.product.imgType = file.type; // Set the MIME type
         });
       }
     }
@@ -47,6 +52,10 @@ export class AddProductComponent implements OnInit {
       formData.append('quantity', this.product.quantity.toString());
       formData.append('description', this.product.description);
       formData.append('img', this.imgFile);
+      formData.append('imgType', this.product.imgType);
+      formData.append('overview', this.product.overview);
+      formData.append('specifications', this.product.specifications);
+      formData.append('performance_and_warranty', this.product.performance_and_warranty);
 
       this.tyreService.addProduct(formData).subscribe(
         response => {
