@@ -1,8 +1,10 @@
 <div class="container my-5">
     <div class="row">
         <!-- Product Image -->
-        <div class="col-md-5">
-            <img *ngIf="product?.img" [src]="'data:' + product?.imgType + ';base64,' + product?.img" alt="{{ product?.name }}" class="img-fluid rounded" />     </div>
+        <div class="col-md-5 d-flex justify-content-center align-items-center" style=" height: 100%;">
+            <img *ngIf="product?.img" [src]="'data:' + product?.imgType + ';base64,' + product?.img"
+                alt="{{ product?.name }}" class="img-fluid rounded" />
+        </div>
 
         <!-- Product Details -->
         <div class="col-md-7">
@@ -18,11 +20,10 @@
                     class="form-control w-25 d-inline-block" />
             </div>
 
-    
+
 
             <!-- Add to Cart Button -->
-            <button class="btn btn-primary btn-lg mt-3" [disabled]="disabledButton"
-                (click)="addToCart(content)">
+            <button class="btn btn-primary btn-lg mt-3" [disabled]="disabledButton" (click)="addToCart(content)">
                 {{ text }}
             </button>
 
@@ -39,7 +40,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="goToProductsList(modal)">Go to Products List</button>
+                    <button type="button" class="btn btn-primary" (click)="goToProductsList(modal)">Go to Products
+                        List</button>
                     <button type="button" class="btn btn-primary" (click)="goToCart(modal)">Go to Cart</button>
                 </div>
             </ng-template>
