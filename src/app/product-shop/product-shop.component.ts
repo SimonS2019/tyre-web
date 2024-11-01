@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { CartService } from '../cart.service';
 import { TyreService } from '../tyre.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-shop',
@@ -22,7 +23,8 @@ export class ProductShopComponent implements OnInit {
     private tyreService: TyreService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
-    private cart: CartService
+    private cart: CartService,
+    private modalService: NgbModal
   ) {}
   ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get('productId');
@@ -39,10 +41,11 @@ export class ProductShopComponent implements OnInit {
     );
   }
 
-  addToCart() {
+  addToCart(content: any) {
     this.disabledButton = true;
     this.text = 'Added to Cart';
     this.submitted = true;
     this.cart.addProductstoCart(this.product, this.quantity);
+    this.modalService.open(content);
   }
 }
