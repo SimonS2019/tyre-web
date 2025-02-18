@@ -1,27 +1,23 @@
-# AppDevTest
+## Live Project
+You can view the live project [here](https://tyre-web.vercel.app/).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+> **Note:** This project uses a free trial database. If the application does not work well, it is likely due to the database being inactive, not issues with the frontend or backend.
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project began as a simple frontend application for learning Angular unit testing and has evolved into a full-stack application with Node.js, Express, and MongoDB. It features authentication, authorization, and a database. The UI/UX has been optimized, and the admin management interface supports CRUD operations for products. Future plans include adding user authorization management.
 
-## Code scaffolding
+The corresponding backend project, "tyre-api," is available [here](https://github.com/SimonS2019/tyre-api) and is also deployed on Vercel. The database used is MongoDB, a NoSQL database.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tech Stack
 
-## Build
+- **Frontend:** Angular
+- **Backend:** Node.js, Express, MongoDB
+- **Testing:** Karma, Protractor
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Running Unit Tests
 
-## Running unit tests
+To execute the unit tests via Karma, run:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng test
